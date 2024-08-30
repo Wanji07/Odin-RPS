@@ -8,7 +8,40 @@
 <body>
     <h1>Hi</h1>
     <script>
-        console.log("Hello World!")
+       function getComputerChoice() {
+        let botChoice;
+        let percentage = Math.floor(Math.random() * 100) + 1;
+        console.log("Percentage is:" + " " + percentage + "%");
+        if (percentage <= 33) {
+            botChoice = "rock";
+        }
+        else if (percentage <=  66) {
+            botChoice = "paper";
+        }
+        else {
+            botChoice = "scissors";
+        }
+        return botChoice;
+    }
+
+    function getHumanChoice() {
+        let user = prompt("Please enter your choice: [Choose between Rock, Paper, Scissors.]");
+        user = user.charAt(0).toUpperCase() + user.slice(1).toLowerCase();
+        let choice;
+
+        if (user === "Rock" || user === "Paper" || user === "Scissors") {
+              choice = user;
+              console.log("The person's choice is:" + " " + choice);
+            }
+        
+        else {
+            console.log("Syntax is incorrect.")
+            alert("You have entered the wrong command! Please follow the directions.")
+        }
+        return choice;
+    }
+    console.log(getComputerChoice());
+    console.log(getHumanChoice());
     </script>
 </body>
 </html>
