@@ -8,19 +8,23 @@
 <body>
     <h1>Hi</h1>
     <script>
+       let computerScore = 0;
+       let humanScore = 0
+
        function getComputerChoice() {
         let botChoice;
         let percentage = Math.floor(Math.random() * 100) + 1;
-        console.log("Percentage is:" + " " + percentage + "%");
         if (percentage <= 33) {
-            botChoice = "rock";
+            botChoice = "Rock";
         }
         else if (percentage <=  66) {
-            botChoice = "paper";
+            botChoice = "Paper";
         }
         else {
-            botChoice = "scissors";
+            botChoice = "Scissors";
         }
+        console.log("The bot's choice is: " + botChoice);
+        console.log("Percentage is:" + " " + percentage + "%");
         return botChoice;
     }
 
@@ -40,8 +44,45 @@
         }
         return choice;
     }
-    console.log(getComputerChoice());
-    console.log(getHumanChoice());
+
+    function playRound(humanChoice, computerChoice) {
+       if (humanChoice === "Rock") {
+        if (computerChoice === "Scissor") {
+            console.log("You win!");
+        }
+        else if (computerChoice === "Rock") {
+            console.log("It's a tie!");
+        } else {
+            console.log("You lose!")
+        }
+       }
+       else if (humanChoice === "Paper") {
+        if (computerChoice === "Rock") {
+            console.log("You win!");
+        }
+        else if (computerChoice === "Paper") {
+            console.log("It's a tie!");
+        } else {
+            console.log("You lose!")
+        }
+       }
+       else if (humanChoice === "Scissors") {
+        if (computerChoice === "Paper") {
+            console.log("You win!");
+        }
+        else if (computerChoice ===  "Scissors") {
+            console.log("It's a tie!");
+        } else {
+            console.log("You lose!")
+        }
+       }
+    }
+
+    const humanSelection = getHumanChoice();
+    const botSelection = getComputerChoice();
+
+    playRound(humanSelection, botSelection);
+
     </script>
 </body>
 </html>
