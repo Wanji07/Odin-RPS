@@ -9,7 +9,7 @@
     <h1>Hi</h1>
     <script>
        let computerScore = 0;
-       let humanScore = 0
+       let humanScore = 0;
 
        function getComputerChoice() {
         let botChoice;
@@ -47,41 +47,71 @@
 
     function playRound(humanChoice, computerChoice) {
        if (humanChoice === "Rock") {
-        if (computerChoice === "Scissor") {
+        if (computerChoice === "Scissors") {
             console.log("You win!");
+            humanScore++;
         }
         else if (computerChoice === "Rock") {
             console.log("It's a tie!");
         } else {
-            console.log("You lose!")
+            console.log("You lose!");
+            computerScore++;
         }
        }
        else if (humanChoice === "Paper") {
         if (computerChoice === "Rock") {
             console.log("You win!");
+            humanScore++;
         }
         else if (computerChoice === "Paper") {
             console.log("It's a tie!");
         } else {
-            console.log("You lose!")
+            console.log("You lose!");
+            computerScore++;
         }
        }
        else if (humanChoice === "Scissors") {
         if (computerChoice === "Paper") {
             console.log("You win!");
+            humanScore++;
         }
         else if (computerChoice ===  "Scissors") {
             console.log("It's a tie!");
         } else {
-            console.log("You lose!")
+            console.log("You lose!");
+            computerScore++;
         }
        }
     }
 
-    const humanSelection = getHumanChoice();
-    const botSelection = getComputerChoice();
+    function playGame() {
+        for (let i = 0; i < 5; i++) {
+            const humanSelection = getHumanChoice();
+            const botSelection = getComputerChoice();
+            playRound(humanSelection, botSelection);
+        }
+        if (computerScore > humanScore) {
+            console.log("======================")
+            console.log("Computer wins!");
+            console.log("Human Score: " + humanScore);
+            console.log("Bot Score: " + computerScore);
+        }
+        else if (computerScore < humanScore) {
+            console.log("======================")
+            console.log("Human wins!");
+            console.log("Human Score: " + humanScore);
+            console.log("Bot Score: " + computerScore);
+        }
+        else if (computerScore === humanScore) {
+            console.log("======================")
+            console.log("It's a tie!");
+            console.log("Human Score: " + humanScore);
+            console.log("Bot Score: " + computerScore);
+        }
 
-    playRound(humanSelection, botSelection);
+    }
+
+    playGame();
 
     </script>
 </body>
